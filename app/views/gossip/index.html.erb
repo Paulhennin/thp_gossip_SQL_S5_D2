@@ -1,0 +1,32 @@
+<center>
+<% if @post %>
+<div class="alert alert-dismissible alert-info">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+<strong> BRAVO ! </strong>
+    <p>Votre gossip à bien été envoyé, vous pouvez déjà aller le regarder au dessus !</p>
+</div>
+<% end %>
+<div>
+<h1>My Gossip Project
+</h1>
+<p>Bienvenue sur notre super site de gossip !!</p>
+<p><%= link_to "Hey ! C'EST ICI POUR CREER UN MENSONGE", new_gossip_path %> <p>
+<% x = 0 %>
+<div class="card-columns">
+  <%while x < @array_gossip.length%>
+  <div class="card border-primary mb-3" style="max-width: 20rem;">
+    <div class="card-body">
+      <h5 class="card-title">  <%= @array_gossip[x].user.first_name %></h5>
+      <!-- UTILISATION link_to POUR RENVOYER À LA PAGE DU GOSSIP-->
+      <h4 class="card-text">    <%= link_to "#{@array_gossip[x].title}", gossip_path(x) %></h4>
+    </div>
+  </div>
+  <% x += 1 %>
+  <% end %>
+</div>
+  </div>
+
+
+
+
+</center>

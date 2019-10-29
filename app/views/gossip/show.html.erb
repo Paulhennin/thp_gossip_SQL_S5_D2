@@ -1,0 +1,20 @@
+<center>
+<br>
+<h1>Page du Gossip n°<%=params['id'].to_i + 1%></h1>
+<br>
+<p>Quelques détails sur le gossip sélectionné: </p>
+
+<p>
+  <!-- UTILISATION link_to POUR RENVOYER À LA PAGE DU GOSSIP-->
+  <!-- ON APPELLE L'INDEX DE L'ARRAY, DÉFINI PAR L'ID DU GOSSIP, PUIS L'UTILISATEUR LIÉ A CE GOSSIP-->
+  <u>Écrit par</u>: <%= link_to "#{@array_gossip[params['id'].to_i].user.first_name}", user_path((@array_gossip[params['id'].to_i].user.id)-1) %><br>
+  <u>Titre du gossip</u>: <%= @array_gossip[params['id'].to_i].title %><br>
+    <u>Gossip</u>: <%= @array_gossip[params['id'].to_i].content %><br>
+    <u>Date de création</u>: <%= @array_gossip[params['id'].to_i].created_at %><br>
+
+</p>
+
+<p>
+  <%= link_to "Retour à la page d'acceuil", gossip_index_path %>
+</p>
+</center>
